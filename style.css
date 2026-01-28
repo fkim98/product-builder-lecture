@@ -1,19 +1,56 @@
 
+:root {
+    --background-color: #f0f0f0;
+    --container-background: white;
+    --text-color: #333;
+    --number-background: #eee;
+    --button-background: #4CAF50;
+    --button-hover: #45a049;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    --background-color: #121212;
+    --container-background: #1e1e1e;
+    --text-color: #f0f0f0;
+    --number-background: #333;
+    --button-background: #5a5a5a;
+    --button-hover: #6a6a6a;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
+    position: relative;
     text-align: center;
-    background-color: white;
+    background-color: var(--container-background);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: background-color 0.3s;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
 }
 
 h1 {
@@ -31,12 +68,13 @@ h1 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #eee;
+    background-color: var(--number-background);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 #generator-btn {
@@ -44,12 +82,12 @@ h1 {
     font-size: 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: var(--button-background);
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 #generator-btn:hover {
-    background-color: #45a049;
+    background-color: var(--button-hover);
 }
